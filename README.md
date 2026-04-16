@@ -117,3 +117,43 @@ python -c "import json; p=json.load(open('data/partitions/cifar10_pathological_n
   - 更完整网格搜索
   - 更多 baseline
   - 更全面评估与分析实验
+
+## 9. 云服务器快速实验（矩池云 / 单卡 A16）
+
+如果你本地训练较慢，建议直接在云上跑。当前仓库已经新增云端配置和脚本，同时保留本地版本不变。
+
+### 9.1 从 GitHub 导入并初始化
+
+```bash
+git clone https://github.com/fldy2639/pFedMoE.git
+cd pFedMoE
+pip install -r requirements.txt
+```
+
+### 9.2 数据准备
+
+手动放置到：
+
+```text
+data/raw/cifar-10-python.tar.gz
+```
+
+### 9.3 快速趋势版（推荐）
+
+```bash
+bash scripts/run_cloud_quick.sh
+```
+
+默认读取 `configs/cloud_quick.yaml`，输出到 `outputs/cloud_quick/`。
+
+### 9.4 完整版（较慢）
+
+```bash
+bash scripts/run_cloud_full.sh
+```
+
+默认读取 `configs/cloud_full.yaml`，输出到 `outputs/cloud_full/`。
+
+### 9.5 详细云端说明
+
+请参考独立文档：`CLOUD_EXPERIMENT_GUIDE.md`。
